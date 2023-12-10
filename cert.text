@@ -1,0 +1,123 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            04:92:70:e1:43:dd:75:98:26:b9:d2:f8:d0:db:46:5d:17:2f
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C = US, O = Let's Encrypt, CN = R3
+        Validity
+            Not Before: Nov 17 03:18:30 2023 GMT
+            Not After : Feb 15 03:18:29 2024 GMT
+        Subject: CN = slack.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:9f:9b:9d:82:e8:be:c7:c8:1a:5e:83:a1:0f:dd:
+                    78:62:3a:4c:16:a5:5b:8c:6d:52:e0:f9:88:3a:6c:
+                    b6:fb:31:db:5d:b4:74:02:51:7a:9e:60:7f:87:79:
+                    43:e2:e3:c4:7e:4b:cd:1a:67:b0:eb:20:a6:7f:87:
+                    2f:e2:20:1e:ad:e9:17:19:ce:47:e5:07:09:07:d2:
+                    87:54:b3:19:33:86:1d:6d:ce:b2:e4:79:17:b1:05:
+                    63:4b:2f:83:f8:b0:7d:fa:99:a7:80:51:2a:93:35:
+                    5e:f6:a6:44:ad:61:7b:fd:8b:e4:17:1c:6f:ed:5a:
+                    a9:1c:5e:81:37:56:d2:bb:63:25:83:a5:18:63:ba:
+                    14:74:43:5d:79:24:64:b6:17:29:27:9a:68:15:d7:
+                    89:df:3a:00:3d:e1:7c:51:e9:ff:d3:d8:19:26:d7:
+                    eb:fe:7f:3b:81:b1:2d:c7:90:27:d2:a2:df:01:23:
+                    ff:15:50:82:fc:11:79:0c:c7:2a:9b:db:45:9c:d6:
+                    18:3d:76:74:3f:d6:8a:d4:34:8e:c8:28:35:2f:16:
+                    23:c3:74:33:e4:00:9d:00:b1:af:e0:c3:97:0e:aa:
+                    cb:df:9f:0c:3d:b0:1c:42:4e:03:95:3f:93:39:31:
+                    90:2e:19:5d:d3:94:81:dd:3e:54:48:c8:42:5c:96:
+                    4e:45
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Key Usage: critical
+                Digital Signature, Key Encipherment
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication, TLS Web Client Authentication
+            X509v3 Basic Constraints: critical
+                CA:FALSE
+            X509v3 Subject Key Identifier: 
+                13:2F:D5:43:8F:51:5A:B8:28:02:85:A6:0C:47:D1:FC:E8:C9:84:3F
+            X509v3 Authority Key Identifier: 
+                14:2E:B3:17:B7:58:56:CB:AE:50:09:40:E6:1F:AF:9D:8B:14:C2:C6
+            Authority Information Access: 
+                OCSP - URI:http://r3.o.lencr.org
+                CA Issuers - URI:http://r3.i.lencr.org/
+            X509v3 Subject Alternative Name: 
+                DNS:*.slack.com, DNS:slack.com
+            X509v3 Certificate Policies: 
+                Policy: 2.23.140.1.2.1
+            CT Precertificate SCTs: 
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : 48:B0:E3:6B:DA:A6:47:34:0F:E5:6A:02:FA:9D:30:EB:
+                                1C:52:01:CB:56:DD:2C:81:D9:BB:BF:AB:39:D8:84:73
+                    Timestamp : Nov 17 04:18:30.280 2023 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:45:02:20:42:5E:EF:9B:37:8F:63:18:35:66:8A:A9:
+                                C3:DE:B3:16:B4:E8:38:94:02:08:F8:D0:79:4C:6D:4B:
+                                B9:70:C9:CB:02:21:00:95:28:6E:3E:59:6D:B0:5B:39:
+                                51:84:61:E1:8F:A3:C9:6C:B7:FB:22:DE:16:36:A2:30:
+                                6B:09:17:F4:94:10:EC
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : 3B:53:77:75:3E:2D:B9:80:4E:8B:30:5B:06:FE:40:3B:
+                                67:D8:4F:C3:F4:C7:BD:00:0D:2D:72:6F:E1:FA:D4:17
+                    Timestamp : Nov 17 04:18:30.281 2023 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:46:02:21:00:F7:5A:21:98:8E:90:A0:A8:81:30:7A:
+                                D5:61:1D:AB:4B:56:B2:6F:D9:1A:82:89:DF:90:43:41:
+                                4B:21:9E:7A:74:02:21:00:87:7B:FE:48:79:2B:81:C1:
+                                D7:0E:79:BA:08:9B:EC:0E:C3:8D:73:27:EC:EB:E0:75:
+                                12:51:0B:BD:AA:D0:3C:30
+    Signature Algorithm: sha256WithRSAEncryption
+    Signature Value:
+        1f:5b:1c:dc:e0:cd:5c:7f:b5:f8:2f:15:1f:57:e1:8a:eb:29:
+        4d:95:93:07:00:92:90:14:d7:57:80:b1:f2:31:24:40:d2:c6:
+        fb:61:7a:e4:14:44:79:2e:68:33:ca:78:da:65:4b:c7:93:d9:
+        e8:49:6a:03:23:f8:61:be:fc:fb:0a:4a:ba:57:6b:70:45:56:
+        2c:61:4e:84:dc:64:2a:80:b7:2c:5d:4c:78:34:8a:0e:57:fc:
+        f1:fc:3d:aa:93:65:9a:3f:ab:3c:88:ac:6b:5b:8b:d4:a5:b9:
+        db:03:df:e5:2d:03:9a:8c:1c:74:31:96:de:de:8e:67:53:e3:
+        ad:c0:9a:13:c6:9e:47:3a:37:30:5d:1f:69:e2:e7:a0:24:e3:
+        a7:32:7e:e9:f6:b4:92:6d:d2:58:5e:09:16:47:ec:07:dd:38:
+        46:66:1d:49:46:78:2f:5c:e7:b8:6a:b4:81:e4:2b:47:98:79:
+        4e:b1:d5:3f:b4:e6:6d:0c:c1:60:ca:52:e6:ce:31:d7:9d:12:
+        97:85:15:96:fe:46:2b:6d:ba:ae:3b:e5:9d:c6:63:92:f1:24:
+        74:ab:74:29:da:8f:49:b9:31:df:bc:88:fe:da:a0:db:06:23:
+        29:7b:c4:00:75:b7:e7:fa:64:0b:ff:7f:b5:60:eb:fd:4b:10:
+        60:d6:42:b7
+-----BEGIN CERTIFICATE-----
+MIIE7TCCA9WgAwIBAgISBJJw4UPddZgmudL40NtGXRcvMA0GCSqGSIb3DQEBCwUA
+MDIxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MQswCQYDVQQD
+EwJSMzAeFw0yMzExMTcwMzE4MzBaFw0yNDAyMTUwMzE4MjlaMBQxEjAQBgNVBAMT
+CXNsYWNrLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJ+bnYLo
+vsfIGl6DoQ/deGI6TBalW4xtUuD5iDpstvsx2120dAJRep5gf4d5Q+LjxH5LzRpn
+sOsgpn+HL+IgHq3pFxnOR+UHCQfSh1SzGTOGHW3OsuR5F7EFY0svg/iwffqZp4BR
+KpM1XvamRK1he/2L5Bccb+1aqRxegTdW0rtjJYOlGGO6FHRDXXkkZLYXKSeaaBXX
+id86AD3hfFHp/9PYGSbX6/5/O4GxLceQJ9Ki3wEj/xVQgvwReQzHKpvbRZzWGD12
+dD/WitQ0jsgoNS8WI8N0M+QAnQCxr+DDlw6qy9+fDD2wHEJOA5U/kzkxkC4ZXdOU
+gd0+VEjIQlyWTkUCAwEAAaOCAhkwggIVMA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUE
+FjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU
+Ey/VQ49RWrgoAoWmDEfR/OjJhD8wHwYDVR0jBBgwFoAUFC6zF7dYVsuuUAlA5h+v
+nYsUwsYwVQYIKwYBBQUHAQEESTBHMCEGCCsGAQUFBzABhhVodHRwOi8vcjMuby5s
+ZW5jci5vcmcwIgYIKwYBBQUHMAKGFmh0dHA6Ly9yMy5pLmxlbmNyLm9yZy8wIQYD
+VR0RBBowGIILKi5zbGFjay5jb22CCXNsYWNrLmNvbTATBgNVHSAEDDAKMAgGBmeB
+DAECATCCAQUGCisGAQQB1nkCBAIEgfYEgfMA8QB2AEiw42vapkc0D+VqAvqdMOsc
+UgHLVt0sgdm7v6s52IRzAAABi9uAcwgAAAQDAEcwRQIgQl7vmzePYxg1Zoqpw96z
+FrToOJQCCPjQeUxtS7lwycsCIQCVKG4+WW2wWzlRhGHhj6PJbLf7It4WNqIwawkX
+9JQQ7AB3ADtTd3U+LbmAToswWwb+QDtn2E/D9Me9AA0tcm/h+tQXAAABi9uAcwkA
+AAQDAEgwRgIhAPdaIZiOkKCogTB61WEdq0tWsm/ZGoKJ35BDQUshnnp0AiEAh3v+
+SHkrgcHXDnm6CJvsDsONcyfs6+B1ElELvarQPDAwDQYJKoZIhvcNAQELBQADggEB
+AB9bHNzgzVx/tfgvFR9X4YrrKU2VkwcAkpAU11eAsfIxJEDSxvtheuQURHkuaDPK
+eNplS8eT2ehJagMj+GG+/PsKSrpXa3BFVixhToTcZCqAtyxdTHg0ig5X/PH8PaqT
+ZZo/qzyIrGtbi9SludsD3+UtA5qMHHQxlt7ejmdT463AmhPGnkc6NzBdH2ni56Ak
+46cyfun2tJJt0lheCRZH7AfdOEZmHUlGeC9c57hqtIHkK0eYeU6x1T+05m0MwWDK
+UubOMdedEpeFFZb+Rittuq475Z3GY5LxJHSrdCnaj0m5Md+8iP7aoNsGIyl7xAB1
+t+f6ZAv/f7Vg6/1LEGDWQrc=
+-----END CERTIFICATE-----
