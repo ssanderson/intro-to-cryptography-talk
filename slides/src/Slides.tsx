@@ -11,6 +11,9 @@ export const Slides = () => (
     <WhatIsCryptoSlides/>
     <HashingSlides/>
     <MacSlides/>
+    <DigitalSignatureSlides/>
+    <SymEncryptSlides/>
+    <AssymEncryptSlides/>
   </>
 );
 
@@ -72,8 +75,8 @@ const OutlineSlides = () => (
         <dl style={{fontSize: "3rem"}}>
           <ul>
             <li>JSON Web Tokens</li>
-            <li>SSH Access Keys</li>
-            <li>TLS Certificates</li>
+            <li>Secure Shell (SSH)</li>
+            <li>Transport Layer Security (TLS, aka HTTPS)</li>
           </ul>
         </dl>
       </div>
@@ -89,28 +92,53 @@ const WhatIsCryptoSlides = () => (
         Cryptography is the use of computational and mathematical techniques to enable <b>secure communication</b> under <b>adversarial conditions</b>.
       </p>
     </Slide>
-    <Slide>
+    <Slide transition="none">
+      <h2 style={{ left: "50%", transform: "translateX(-50%)", top: "20%", position: "fixed"}}>Secure Messaging</h2>
       <img src="/src/assets/Albert-Bryn-Basic.svg"/>
     </Slide>
-    <Slide>
+    <Slide transition="none">
+      <h2 style={{ left: "50%", transform: "translateX(-50%)", top: "20%", position: "fixed"}}>Secure Storage</h2>
       <img src="/src/assets/Albert-Future-Albert.svg"/>
     </Slide>
-    <Slide>
+    <Slide transition="none">
       <img src="/src/assets/Albert-Bryn-Evelyn.svg"/>
     </Slide>
-    <Slide>
+    <Slide transition="none">
       <img src="/src/assets/Albert-Bryn-Mallory.svg"/>
     </Slide>
     <Slide>
       <img style={{maxHeight: "950px"}} src="/src/assets/Characters.png"/>
     </Slide>
   </Slide>
-
 );
 
 const HashingSlides = () => (
   <Slide>
-    <Title>Cryptographic Hashes</Title>
+    <Title>Data Integrity: Cryptographic Hashing</Title>
+    <Slide transition="none">
+      <img src="/src/assets/Albert-Bryn-Basic.svg"/>
+    </Slide>
+    <Slide transition="none">
+      <img src="/src/assets/Albert-Database.svg"/>
+    </Slide>
+    <Slide transition="none">
+      <img src="/src/assets/Albert-Trashfire.svg"/>
+    </Slide>
+    <Slide>
+      <h3>Demo: Basic Client and Server</h3>
+    </Slide>
+    <Slide>
+      <div style={{textAlign: "left", fontSize: "3rem"}}>
+        <p>How do we ensure <b>data integrity</b> in the face of unreliable transit and storage media?</p>
+        <p className="fragment">One simple answer is <b>cryptographic hashing</b>!</p>
+      </div>
+    </Slide>
+    <Slide>
+      <img src="/src/assets/basic-hash.svg"/>
+    </Slide>
+    <Slide>
+      <img src="/src/assets/collision-resist.svg"/>
+    </Slide>
     <Slide>
       <h3>Example: SHA256</h3>
     </Slide>
@@ -118,7 +146,7 @@ const HashingSlides = () => (
       <div style={{textAlign: "left", fontSize: "3rem"}}>
         <p>Cryptographic hashes cheaply compute a short <b>summary</b> of an input.</p>
         <p>Learning the hash of a value doesn't tell us anything about that value.</p>
-        <p>Sending or storing a hash with a value allows us to detect <b>accidental</b> data corruption.</p>
+        <p>Hashes protect us against <b>accidental</b> data corruption.</p>
         <p>Cryptographic hashes usually <b>do not</b> protect us from malicious tampering, because an adversary can simply modify the data and recompute the hash.</p>
         <p>Regular cryptographic hashes are <b>not secure</b> for password storage, because they can be brute-forced. Instead, we use <b>key stretching functions</b> which are designed specifically for password storage.</p>
       </div>
@@ -128,22 +156,88 @@ const HashingSlides = () => (
 
 const MacSlides = () => (
   <Slide>
-    <Title>Message Authentication Codes</Title>
+    <Title>Data Authentication: Message Authentication Codes</Title>
     <Slide>
-      <blockquote>
+      <blockquote style={{fontSize: "3rem"}}>
         <p>
-          Cryptographic usually <b>do not</b> protect us from malicious tampering, because an adversary can simply modify the data and recompute the hash.
+          Cryptographic hashes usually <b>do not</b> protect us from malicious tampering, because an adversary can simply modify the data and recompute the hash.
         </p>
-        <footer>Sanderson, S. (2023 December 11)</footer>
+        <footer> - Sanderson, S. (2023 December 11) Boston Python Meetup</footer>
       </blockquote>
     </Slide>
     <Slide>
       <div style={{textAlign: "left", fontSize: "3rem"}}>
-        <p>Message Authentication Codes (MACs) work similarly to hashes, but require an additional <b>secret key</b>.</p>
-        <p>Verifying a MAC of our data that our data can't be tampered with by an attacker who doesn't know the MAC key.</p>
+        <p>
+          Hashing uses only public data, so anything we can do with hashing, a malicious adversary can emulate.
+        </p>
+        <p className="fragment">
+          To defeat a malicious adversary, we need to incorporate a <b>secret</b> value known only to us.
+        </p>
+        <p className="fragment">
+          The simplest way to do this is to use a <b>Message Authentication Code</b>, or <b>MAC</b>.
+        </p>
+        <p className="fragment">
+          There are many kinds of MACs. A common class is <b>Hash-Based Message Authentication Codes</b>. An HMAC "mixes in" a secret value to a cryptographic hash function, resulting in a hash that can't be computed by an adversary without knowing the key.
+        </p>
+      </div>
+    </Slide>
+    <Slide>
+      Example: HMAC-SHA256
+    </Slide>
+    <Slide>
+      <div style={{textAlign: "left", fontSize: "3rem"}}>
+        <p>Message Authentication Codes (MACs) are similar to hashes, but require an additional <b>secret key</b>.</p>
+        <p>Verifying a MAC guarantees that our data can't be tampered with by an attacker who doesn't know the MAC key.</p>
         <p>MACs are often built from cryptographic hashes.</p>
         <p>HMAC-{"{hashname}"} is a common "standard" MAC function built from {"{hashname}"}.</p>
       </div>
     </Slide>
   </Slide>
+);
+
+const DigitalSignatureSlides = () => (
+  <Slide>
+    <Title>Data Authentication: Digital Signatures</Title>
+    <Slide transition="none">
+      <img style={{maxHeight: "1000px"}} src="/src/assets/SSH-Server.svg"/>
+    </Slide>
+    <Slide>
+      <div style={{textAlign: "left", fontSize: "3rem"}}>
+      </div>
+    </Slide>
+    <Slide transition="none">
+      <img style={{maxHeight: "1000px"}} src="/src/assets/SSH-Keys.svg"/>
+    </Slide>
+    <Slide>
+      <img style={{maxHeight: "1000px"}} src="/src/assets/privkey-auth.svg"/>
+    </Slide>
+    <Slide>
+      <div style={{textAlign: "left", fontSize: "3rem"}}>
+        <p>Digital Signatures are similar to MACs, but they use an <b>asymmetric</b> keypair instead of a shared MAC key.</p>
+        <p>Data can be <b>signed</b> with the public key</p>
+        <p>Verifying a MAC guarantees that our data can't be tampered with by an attacker who doesn't know the MAC key.</p>
+        <p>MACs are often built from cryptographic hashes.</p>
+        <p>HMAC-{"{hashname}"} is a common "standard" MAC function built from {"{hashname}"}.</p>
+      </div>
+    </Slide>
+  </Slide>
+);
+
+const SymEncryptSlides = () => (
+  <Slide>
+    <Title>Confidentiality: Symmetric Encryption</Title>
+    <Slide transition="none">
+      <img src="/src/assets/Albert-Bryn-Evelyn.svg"/>
+    </Slide>
+    <Slide>
+      <img style={{maxHeight:"900px"}} src="/src/assets/sym-encrypt.svg"></img>
+    </Slide>
+    <Slide>
+      <img style={{maxHeight:"900px"}} src="/src/assets/sym-decrypt.svg"></img>
+    </Slide>
+  </Slide>
+);
+
+const AssymEncryptSlides = () => (
+  <div></div>
 );

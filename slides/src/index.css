@@ -10,3 +10,7 @@ code {
 .App {
   height: 100%;
 }
+
+.reveal p {
+    margin-bottom: 2rem;
+}
