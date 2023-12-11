@@ -14,6 +14,8 @@ export const Slides = () => (
     <DigitalSignatureSlides/>
     <SymEncryptSlides/>
     <AssymEncryptSlides/>
+    <Review/>
+    <Questions/>
   </>
 );
 
@@ -66,7 +68,7 @@ const OutlineSlides = () => (
         <dl style={{fontSize: "3rem"}}>
           <dt>Integrity</dt>
           <dd>Ensure that data has not changed.</dd>
-          <dt>Authentication</dt>
+          <dt>Authenticity</dt>
           <dd>Ensure that data originates from expected source.</dd>
           <dt>Confidentiality</dt>
           <dd>Prevent undesired data access.</dd>
@@ -75,7 +77,8 @@ const OutlineSlides = () => (
         <dl style={{fontSize: "3rem"}}>
           <ul>
             <li>JSON Web Tokens</li>
-            <li>Secure Shell (SSH)</li>
+            <li>Secure Shell (SSH) Auth</li>
+            <li>Passkeys</li>
             <li>Transport Layer Security (TLS, aka HTTPS)</li>
           </ul>
         </dl>
@@ -235,9 +238,54 @@ const SymEncryptSlides = () => (
     <Slide>
       <img style={{maxHeight:"900px"}} src="/src/assets/sym-decrypt.svg"></img>
     </Slide>
+    <Slide>
+      <h3>Example: cryptography and nacl</h3>
+    </Slide>
   </Slide>
 );
 
 const AssymEncryptSlides = () => (
   <div></div>
+);
+
+const Review = () => (
+  <Slide>
+    <Title>Review</Title>
+    <Slide>
+      <div style={{textAlign: "left", fontSize: "3rem"}}>
+        <p><b>Hashing</b> guarantees <b>data integrity</b> against <b>accidental</b> modification. Does not help against active attacker.</p>
+        <p className="fragment"><b>Message Authentication Codes</b> use a <b>shared secret</b> to guarantee data <b>integrity</b> and <b>authenticity</b>.</p>
+        <p className="fragment"><b>Digital Signatures </b> use <b>asymmetric signing keys</b> to guarantee data <b>integrity</b> and <b>authenticity</b>.</p>
+        <p className="fragment"><b>Symmetric Encryption</b> uses a <b>shared secret</b> to guarantee <b>confidentiality</b>.</p>
+        <p className="fragment"><b>Asymmetric Encryption</b> uses <b>asymmetric keys</b> to derive a shared session secret.</p>
+      </div>
+    </Slide>
+    <Slide>
+      <div style={{textAlign: "left", fontSize: "3rem"}}>
+        <h3>Libraries</h3>
+        <ul>
+          <li>Standard Library
+            <ul>
+              <li><code>hashlib</code></li>
+              <li><code>hmac</code></li>
+            </ul>
+          </li>
+          <li>Third Party
+            <ul>
+              <li><code>nacl</code> - Easy to use. Somewhat idiosyncratic algorithms.</li>
+              <li><code>cryptography</code> - Supports common standards. Harder to use outside of "recipes" layer.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </Slide>
+  </Slide>
+);
+
+const Questions = () => (
+  <Slide>
+    <Slide>
+      <h2>Questions?</h2>
+    </Slide>
+  </Slide>
 );
