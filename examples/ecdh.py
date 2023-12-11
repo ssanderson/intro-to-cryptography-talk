@@ -1,4 +1,6 @@
 from cryptography.hazmat.primitives.asymmetric import ec
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.kdf.hkdf import HKDF
 
 
 def print_key(name, k):
@@ -35,3 +37,22 @@ bryn_shared_secret = bryn_private.exchange(
     albert_private.public_key(),
 )
 print(f"Bryn's shared secret is:\n  {list(bryn_shared_secret)}")
+
+
+# In real applications it's bad practice to use the derived secret directly.
+# Instead, we run through a KDF first.
+albert_secret = derived_key = HKDF(
+    algorithm=hashes.SHA256(),
+    length=32,
+    salt=None,
+    info=b'handshake data',
+).derive(albert_shared_secret)
+print(f"Albert's derived secret is:\n  {list(albert_secret)}")
+
+bryn_secret = derived_key = HKDF(
+    algorithm=hashes.SHA256(),
+    length=32,
+    salt=None,
+    info=b'handshake data',
+).derive(bryn_shared_secret)
+print(f"Bryn's derived secret is:\n  {list(bryn_secret)}")

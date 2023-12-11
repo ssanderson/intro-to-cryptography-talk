@@ -5,7 +5,6 @@ import { Slide } from "./Slide";
 export const Slides = () => (
   <>
     <TitleSlide/>
-    <WhoAmISlide/>
     <AudienceSlides/>
     <OutlineSlides/>
     <WhatIsCryptoSlides/>
@@ -23,15 +22,6 @@ const TitleSlide = () => (
   <Slide>
     <h1>What I Wish I Had Known Before Joining an Authentication Startup</h1>
     <h2>A Conceptual Introduction to Cryptography</h2>
-  </Slide>
-);
-
-const WhoAmISlide = () => (
-  <Slide>
-    <Title>Who Am I?</Title>
-    <Slide>
-      dfasa
-    </Slide>
   </Slide>
 );
 
@@ -78,7 +68,7 @@ const OutlineSlides = () => (
           <ul>
             <li>JSON Web Tokens</li>
             <li>Secure Shell (SSH) Auth</li>
-            <li>Passkeys</li>
+            <li>FIDO2 (Yubikey, Passkeys)</li>
             <li>Transport Layer Security (TLS, aka HTTPS)</li>
           </ul>
         </dl>
@@ -188,6 +178,9 @@ const MacSlides = () => (
       Example: HMAC-SHA256
     </Slide>
     <Slide>
+      HMAC in the wild: <a href="https://jwt.io/">JSON Web Tokens</a>
+    </Slide>
+    <Slide>
       <div style={{textAlign: "left", fontSize: "3rem"}}>
         <p>Message Authentication Codes (MACs) are similar to hashes, but require an additional <b>secret key</b>.</p>
         <p>Verifying a MAC guarantees that our data can't be tampered with by an attacker who doesn't know the MAC key.</p>
@@ -196,7 +189,7 @@ const MacSlides = () => (
       </div>
     </Slide>
   </Slide>
-);
+)
 
 const DigitalSignatureSlides = () => (
   <Slide>
@@ -206,21 +199,35 @@ const DigitalSignatureSlides = () => (
     </Slide>
     <Slide>
       <div style={{textAlign: "left", fontSize: "3rem"}}>
+        <p>How can we guarantee data integrity without shared secrets?</p>
+        <p className="fragment"><b>Digital Signatures</b> are a form of <b>asymmetric</b> cryptography that provides similar guarantees as MAC, but without needing shared secrets.</p>
+      </div>
+    </Slide>
+    <Slide>
+      <img style={{maxHeight: "1000px"}} src="/src/assets/sign.svg"/>
+    </Slide>
+    <Slide>
+      <img style={{maxHeight: "1000px"}} src="/src/assets/verify.svg"/>
+    </Slide>
+    <Slide>
+      <div style={{textAlign: "left", fontSize: "3rem"}}>
+        <p>Distribute all users' private keys to server.</p>
+        <p className="fragment">Store private keys on users' machines.</p>
+        <p className="fragment">Authenticate users by sending a random string, requesting a signature, and verifying with public key.</p>
       </div>
     </Slide>
     <Slide transition="none">
       <img style={{maxHeight: "1000px"}} src="/src/assets/SSH-Keys.svg"/>
     </Slide>
-    <Slide>
+    <Slide transition="none">
       <img style={{maxHeight: "1000px"}} src="/src/assets/privkey-auth.svg"/>
     </Slide>
     <Slide>
       <div style={{textAlign: "left", fontSize: "3rem"}}>
         <p>Digital Signatures are similar to MACs, but they use an <b>asymmetric</b> keypair instead of a shared MAC key.</p>
-        <p>Data can be <b>signed</b> with the public key</p>
-        <p>Verifying a MAC guarantees that our data can't be tampered with by an attacker who doesn't know the MAC key.</p>
-        <p>MACs are often built from cryptographic hashes.</p>
-        <p>HMAC-{"{hashname}"} is a common "standard" MAC function built from {"{hashname}"}.</p>
+        <p>Data <b>signed</b> with the private key can be <b>verified</b> with the public key.</p>
+        <p>Besides data integrity, digital signatures can be used for <b>user authentication</b> without shared secrets.</p>
+        <p>Challenge/Response digital signatures are the basis for <b>SSH Auth</b>, <b>FIDO2 (Passkeys, Yubikeys)</b></p>
       </div>
     </Slide>
   </Slide>
@@ -245,7 +252,19 @@ const SymEncryptSlides = () => (
 );
 
 const AssymEncryptSlides = () => (
-  <div></div>
+  <Slide>
+    <Title>Confidentiality: Asymmetric Key Agreement</Title>
+    <Slide>
+      <div style={{textAlign: "left", fontSize: "3rem"}}>
+        <p>Symmetric encryption allows us to securely transmit data over insecure channels if we have a shared secret.</p>
+        <p className="fragment">How can we bootstrap a shared secret over an insecure channel?</p>
+        <p className="fragment">Modern answer is <b>Diffie-Hellman Key Agreement</b></p>
+      </div>
+    </Slide>
+    <Slide transition="none">
+      <img style={{maxHeight: "900px"}} src="/src/assets/diffie-hellman-1.svg"/>
+    </Slide>
+  </Slide>
 );
 
 const Review = () => (
