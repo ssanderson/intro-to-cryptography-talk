@@ -59,14 +59,14 @@ const OutlineSlides = () => (
     <Slide>
       <Title>Outline</Title>
       <div style={{textAlign: "left"}}>
-        <h3>Fundamental Goals</h3>
+        <h3>Fundamental Goals of Cryptogrpahy</h3>
         <dl style={{fontSize: "3rem"}}>
           <dt>Integrity</dt>
           <dd>Ensure that data has not changed.</dd>
           <dt>Authentication</dt>
           <dd>Ensure that data originates from expected source.</dd>
           <dt>Confidentiality</dt>
-          <dd>Prevent unauthorized data access.</dd>
+          <dd>Prevent undesired data access.</dd>
         </dl>
         <h3 style={{marginTop: "3rem"}}>Real-World Applications</h3>
         <dl style={{fontSize: "3rem"}}>
@@ -82,14 +82,30 @@ const OutlineSlides = () => (
 );
 
 const WhatIsCryptoSlides = () => (
-<Slide>
-  <Title>What Is Cryptography?</Title>
   <Slide>
-    <p style={{fontSize: "3.5rem"}}>
-      Cryptography is the use of computational and mathematical techniques to enable <b>secure communication</b> under <b>adversarial conditions</b>.
-    </p>
+    <Title>What Is Cryptography?</Title>
+    <Slide>
+      <p style={{fontSize: "3.5rem"}}>
+        Cryptography is the use of computational and mathematical techniques to enable <b>secure communication</b> under <b>adversarial conditions</b>.
+      </p>
+    </Slide>
+    <Slide>
+      <img src="/src/assets/Albert-Bryn-Basic.svg"/>
+    </Slide>
+    <Slide>
+      <img src="/src/assets/Albert-Future-Albert.svg"/>
+    </Slide>
+    <Slide>
+      <img src="/src/assets/Albert-Bryn-Evelyn.svg"/>
+    </Slide>
+    <Slide>
+      <img src="/src/assets/Albert-Bryn-Mallory.svg"/>
+    </Slide>
+    <Slide>
+      <img style={{maxHeight: "950px"}} src="/src/assets/Characters.png"/>
+    </Slide>
   </Slide>
-</Slide>
+
 );
 
 const HashingSlides = () => (

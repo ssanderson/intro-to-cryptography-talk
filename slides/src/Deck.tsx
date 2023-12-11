@@ -10,7 +10,7 @@ export const Deck = ({ children }: React.PropsWithChildren<{}>) => {
     (async () => {
       if (ref.current === undefined){
         const api = await Reveal.initialize({
-          plugins: [RevealNotes, RevealMarkdownscripts],
+          plugins: [RevealNotes, RevealMarkdown],
           ...Options
         });
         ref.current = api;

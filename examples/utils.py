@@ -4,10 +4,6 @@ import inspect
 import socket
 
 
-class HashMismatch(Exception):
-    pass
-
-
 def log(m):
     caller = inspect.stack()[1].filename.split('/')[-1]
     print(f"[{caller}] {m}")
@@ -52,3 +48,11 @@ def run_server_on_port(server, port):
             server(conn)
 
     return server
+
+
+class HashMismatch(Exception):
+    pass
+
+
+class MacMismatch(Exception):
+    pass
