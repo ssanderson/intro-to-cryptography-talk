@@ -19,11 +19,12 @@ def main():
         message = read_message(conn)
         log(f"Got message: {message!r}")
 
-        # Simulate data corruption.
-        corrupted_message = message.replace("Bryn", "Bryan")
-        log(f"Sending corrupted message: {corrupted_message!r}")
+        # Simulate "data corruption".
+        log("Fixing typos in message!")
+        corrupted_message = message.replace(b"Bryn", b"Bryan")
 
         with connect_to_server(SERVER_PORT) as sock:
+            log(f"Sending message: {corrupted_message!r}")
             send_message(sock, corrupted_message)
 
     run_server_on_port(server, ROUTER_PORT)

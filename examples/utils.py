@@ -9,17 +9,16 @@ def log(m):
 
 
 def read_message(conn):
-    msglen_bytes = conn.recv(8)
-    message_length = int.from_bytes(msglen_bytes, "big", signed=True)
-    message = conn.recv(message_length).decode('utf-8')
+    length_bytes = conn.recv(8)
+    message_length = int.from_bytes(length_bytes, "big", signed=True)
+    message = conn.recv(message_length)
     return message
 
 
-def send_message(sock, msg_str):
-    msg = msg_str.encode('utf-8')
-    msglen_bytes = len(msg).to_bytes(8, byteorder='big', signed=True)
-    sock.send(msglen_bytes)
-    sock.send(msg)
+def send_message(sock, message):
+    length_bytes = len(message).to_bytes(8, byteorder='big', signed=True)
+    sock.send(length_bytes)
+    sock.send(message)
 
 
 @contextmanager
