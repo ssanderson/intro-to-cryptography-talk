@@ -1,13 +1,9 @@
 # hash_server.py
 import hashlib
 
-from .utils import run_server_on_port, log, read_message
+from .utils import run_server_on_port, log, read_message, HashMismatch
 
 PORT = 5555
-
-
-class HashMismatch(Exception):
-    pass
 
 
 def read_hashed_message(conn):
@@ -23,9 +19,8 @@ def read_hashed_message(conn):
     hash_ = hashlib.sha256(message).digest()
 
     if hash_ == sent_hash:
-        log(f"Hash matched: {hash_.hex()}")
         # All good!
-        return message
+        return (hash_, message)
     else:
         raise HashMismatch()
 
@@ -35,8 +30,8 @@ def main():
 
     def server(conn):
         try:
-            msg = read_hashed_message(conn)
-            log(f"Got message: {msg!r}")
+            (hash_, message) = read_hashed_message(conn)
+            log(f"Got message: {message!r}. hash={hash_.hex()}")
         except HashMismatch:
             print("Hashes did not match!")
 

@@ -1,6 +1,11 @@
 from contextlib import contextmanager
+import hashlib
 import inspect
 import socket
+
+
+class HashMismatch(Exception):
+    pass
 
 
 def log(m):
@@ -19,6 +24,13 @@ def send_message(sock, message):
     length_bytes = len(message).to_bytes(8, byteorder='big', signed=True)
     sock.send(length_bytes)
     sock.send(message)
+
+
+def send_hashed_message(sock, message):
+    """Send a message prefixed with a SHA-256 hash.
+    """
+    hash_ = hashlib.sha256(message).digest()
+    send_message(sock, hash_ + message)
 
 
 @contextmanager
