@@ -3,9 +3,9 @@ import ReactDOM from "react-dom/client";
 import { Deck } from "./Deck.tsx";
 import { Slides } from "./Slides.tsx";
 
-import "./index.css";
 import "reveal.js/dist/reveal.css";
-import "reveal.js/dist/theme/moon.css";
+import "reveal.js/dist/theme/solarized.css";
+import "./index.css";
 
 const App = () => (
   <div className="App">

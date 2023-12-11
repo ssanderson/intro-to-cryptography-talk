@@ -38,7 +38,7 @@ Goal is to give you a conceptual orientation w/r/t the high-level concepts.
   - Authentication Tokens
   - TLS Certificates
 
-## Data Verification
+## Data Integrity
 
 - Allows us know that a piece of data is the same as it was at a different
   location or moment in time.

@@ -1,6 +1,10 @@
 import Reveal from 'reveal.js';
 
-export default {
+export const Options: Reveal.Options = {
+  width: 1900,
+  height: 1200,
+  margin: 0.15,
+
   // Display presentation control arrows
   controls: true,
 
@@ -23,24 +27,16 @@ export default {
 
   // Add the current slide number to the URL hash so that reloading the
   // page/copying the URL will return you to the same slide
-  hash: false,
+  hash: true,
 
   // Push each slide change to the browser history. Implies `hash: true`
   history: true,
-
-  // Enable keyboard shortcuts for navigation
-  keyboard: {
-    37: 'prev',
-    38: 'prev',
-    39: 'next',
-    40: 'next',
-  },
 
   // Enable the slide overview mode
   overview: true,
 
   // Vertical centering of slides
-  center: true,
+  center: true ,
 
   // Enables touch navigation on devices with touch input
   touch: true,
@@ -114,9 +110,6 @@ export default {
   // Time before the cursor is hidden (in ms)
   hideCursorTime: 5000,
 
-  // Hides the address bar on mobile devices
-  hideAddressBar: true,
-
   // Opens links in an iframe preview overlay
   // Add `data-preview-link` and `data-preview-link="false"` to customise each
   // link
@@ -149,5 +142,5 @@ export default {
   parallaxBackgroundVertical: null,
 
   // The display mode that will be used to show slides
-  display: 'block',
+  display: 'block ',
 } as const;

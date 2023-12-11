@@ -10,10 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mermaid-js/mermaid-cli": "^10.6.1",
     "@types/reveal.js": "^4.4.8",
+    "mermaid": "^10.6.1",
+    "prism-react-renderer": "^2.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "reveal.js": "^5.0.2"
+    "reveal.js": "^5.0.2",
+    "reveal.js-mermaid-plugin": "^2.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",
