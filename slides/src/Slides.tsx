@@ -94,13 +94,15 @@ const WhatIsCryptoSlides = () => (
       <img src="/src/assets/Albert-Future-Albert.svg"/>
     </Slide>
     <Slide transition="none">
+      <h2 style={{ left: "50%", transform: "translateX(-50%)", top: "10%", position: "fixed"}}>Passive Adversary</h2>
       <img src="/src/assets/Albert-Bryn-Evelyn.svg"/>
     </Slide>
     <Slide transition="none">
+      <h2 style={{ left: "50%", transform: "translateX(-50%)", top: "10%", position: "fixed"}}>Active Adversary</h2>
       <img src="/src/assets/Albert-Bryn-Mallory.svg"/>
     </Slide>
     <Slide>
-      <img style={{maxHeight: "950px"}} src="/src/assets/Characters.png"/>
+      <img style={{maxHeight: "1000px"}} src="/src/assets/Characters.png"/>
     </Slide>
   </Slide>
 );
@@ -118,12 +120,15 @@ const HashingSlides = () => (
       <img src="/src/assets/Albert-Trashfire.svg"/>
     </Slide>
     <Slide>
-      <h3>Demo: Basic Client and Server</h3>
+      <h3>Example: Buggy Router</h3>
     </Slide>
     <Slide>
       <div style={{textAlign: "left", fontSize: "3rem"}}>
         <p>How do we ensure <b>data integrity</b> in the face of unreliable transit and storage media?</p>
         <p className="fragment">One simple answer is <b>cryptographic hashing</b>!</p>
+        <p className="fragment">A cryptographic hash takes an arbitrary-length input and returns a short (usually fixed-length) <b>summary</b> of the data.</p>
+        <p className="fragment">The same piece of data always produces the exact-same hash.</p>
+        <p className="fragment">Different pieces of data have negligible probability of having the same hash.</p>
       </div>
     </Slide>
     <Slide>
@@ -137,9 +142,18 @@ const HashingSlides = () => (
     </Slide>
     <Slide>
       <div style={{textAlign: "left", fontSize: "3rem"}}>
+        <h3>Hashes in the Wild</h3>
+        <ul>
+          <li>Git uses SHA-1 to identify commits. (Theoretically migrating to SHA-256).</li>
+          <li>Bitcoin uses SHA-256 to verify integrity of blocks.</li>
+        </ul>
+      </div>
+    </Slide>
+    <Slide>
+      <div style={{textAlign: "left", fontSize: "3rem"}}>
         <p>Cryptographic hashes cheaply compute a short <b>summary</b> of an input.</p>
         <p>Learning the hash of a value doesn't tell us anything about that value.</p>
-        <p>Hashes protect us against <b>accidental</b> data corruption.</p>
+        <p>Hashes protect against <b>accidental</b> data corruption.</p>
         <p>Cryptographic hashes usually <b>do not</b> protect us from malicious tampering, because an adversary can simply modify the data and recompute the hash.</p>
         <p>Regular cryptographic hashes are <b>not secure</b> for password storage, because they can be brute-forced. Instead, we use <b>key stretching functions</b> which are designed specifically for password storage.</p>
       </div>
@@ -175,10 +189,14 @@ const MacSlides = () => (
       </div>
     </Slide>
     <Slide>
-      Example: HMAC-SHA256
+      <h3>Example: HMAC-SHA256</h3>
     </Slide>
     <Slide>
-      HMAC in the wild: <a href="https://jwt.io/">JSON Web Tokens</a>
+      <h3>MACs in the Wild</h3>
+      <ul>
+        <li><a href="https://jwt.io/">JSON Web Tokens</a></li>
+        <li>Almost all <b>symmetric encryption</b> systems add a MAC for authentication.</li>
+      </ul>
     </Slide>
     <Slide>
       <div style={{textAlign: "left", fontSize: "3rem"}}>
@@ -199,8 +217,10 @@ const DigitalSignatureSlides = () => (
     </Slide>
     <Slide>
       <div style={{textAlign: "left", fontSize: "3rem"}}>
-        <p>How can we guarantee data integrity without shared secrets?</p>
+        <p>How can we guarantee integrity and authenticity among a large group of people, where shared secrets are impractical?</p>
         <p className="fragment"><b>Digital Signatures</b> are a form of <b>asymmetric</b> cryptography that provides similar guarantees as MAC, but without needing shared secrets.</p>
+        <p className="fragment">With asymmetric cryptography, we no longer use a single <b>shared</b> secret.</p>
+        <p className="fragment">Instead, we split the secret into separate <b>public</b> and <b>private</b> components.</p>
       </div>
     </Slide>
     <Slide>
@@ -224,10 +244,20 @@ const DigitalSignatureSlides = () => (
     </Slide>
     <Slide>
       <div style={{textAlign: "left", fontSize: "3rem"}}>
+        <h3>Digital Signatures in the Wild</h3>
+        <ul>
+          <li>SSH Auth</li>
+          <li>FIDO2 (Passkeys)</li>
+          <li>TLS Certificates</li>
+        </ul>
+      </div>
+    </Slide>
+    <Slide>
+      <div style={{textAlign: "left", fontSize: "3rem"}}>
         <p>Digital Signatures are similar to MACs, but they use an <b>asymmetric</b> keypair instead of a shared MAC key.</p>
+        <p>Public keys can be shared freely. Only private keys need to be kept secret.</p>
         <p>Data <b>signed</b> with the private key can be <b>verified</b> with the public key.</p>
         <p>Besides data integrity, digital signatures can be used for <b>user authentication</b> without shared secrets.</p>
-        <p>Challenge/Response digital signatures are the basis for <b>SSH Auth</b>, <b>FIDO2 (Passkeys, Yubikeys)</b></p>
       </div>
     </Slide>
   </Slide>

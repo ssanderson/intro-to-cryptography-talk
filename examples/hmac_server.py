@@ -1,3 +1,4 @@
+import sys
 import hmac
 
 from .utils import run_server_on_port, log, read_message, MacMismatch
@@ -15,7 +16,7 @@ def read_hmaced_message(conn, key):
     message = hmaced_message[32:]
 
     # Compute our own hash and check that it matches.
-    computed_hmac = hmac.new(key, message, digestmod='sha256')
+    computed_hmac = hmac.new(key, message, digestmod='sha256').digest()
 
     if hmac.compare_digest(sent_hmac, computed_hmac):
         return sent_hmac, message
@@ -34,3 +35,7 @@ def main(key):
             print("MACs did not match!")
 
     run_server_on_port(server, PORT)
+
+
+if __name__ == '__main__':
+    main(bytes.fromhex(sys.argv[1]))
